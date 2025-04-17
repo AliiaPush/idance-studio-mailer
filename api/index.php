@@ -21,6 +21,7 @@ $smtp_host = $_ENV["SMTP_HOST"];
 $smtp_username = $_ENV["SMTP_USERNAME"];
 $smtp_password = $_ENV["SMTP_PASSWORD"];
 $smtp_port = $_ENV["SMTP_PORT"];
+$smtp_from_address = $_ENV["FROM_ADDRESS"];
 $smtp_send_address = $_ENV["SEND_ADDRESS"];
 
 $mail = new PHPMailer(true);
@@ -33,13 +34,14 @@ $mail->Password   = $smtp_password;
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 $mail->Port       = $smtp_port;
 
-function set_SMTP($from, $name, $subject, $template)
+function set_SMTP($name, $subject, $template)
 {
     global $mail;
+    global $smtp_from_address;
     global $smtp_send_address;
 
-    $mail->setFrom($smtp_send_address, $name);
-    $mail->addAddress($from, 'Idance Studio Team');
+    $mail->setFrom($smtp_from_address, $name);
+    $mail->addAddress($smtp_send_address, 'Idance Studio Team');
     $mail->isHTML(true);
     $mail->Subject = $subject;
     $mail->Body    = $template;
@@ -49,7 +51,6 @@ function set_SMTP($from, $name, $subject, $template)
         echo 'success';
     } catch (Exception $ex) {
         echo "Message could not be sent.";
-        echo $ex->getMessage();
     }
 }
 
@@ -78,7 +79,7 @@ if (isset($_POST["execution"]) && $_POST["execution"] == "contact") {
                         ob_start();
                         require_once "contact.php";
                         $template = ob_get_clean();
-                        set_SMTP($email, $name, "Contacting Idance Studio", $template);
+                        set_SMTP($name, "Contacting Idance Studio", $template);
                         // $mail->setFrom($email, $name);
                         // $mail->addAddress($_ENV["SEND_ADDRESS"], 'Idance Studio Team');
                         // $mail->isHTML(true);
@@ -134,7 +135,7 @@ if (isset($_POST["execution"]) && $_POST["execution"] == "register") {
                         ob_start();
                         require_once "register.php";
                         $template = ob_get_clean();
-                        set_SMTP($email, "$first_name $last_name", "Class Registration", $template);
+                        set_SMTP("$first_name $last_name", "Class Registration", $template);
                         // $mail->setFrom($email, "$first_name $last_name");
                         // $mail->addAddress($_ENV["SEND_ADDRESS"], 'Idance Studio Team');
                         // $mail->isHTML(true);
