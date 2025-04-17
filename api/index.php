@@ -17,17 +17,19 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: text/plain");
 
+$mail = new PHPMailer(true);
+//Server settings
+$mail->isSMTP();
+$mail->Host       = $_ENV["SMTP_HOST"];
+$mail->SMTPAuth   = true;
+$mail->Username   = $_ENV["SMTP_USERNAME"];
+$mail->Password   = $_ENV["SMTP_PASSWORD"];
+$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+$mail->Port       = $_ENV["SMTP_PORT"];
+
 function set_SMTP($from, $name, $subject, $template)
 {
-    $mail = new PHPMailer(true);
-    //Server settings
-    $mail->isSMTP();
-    $mail->Host       = $_ENV["SMTP_HOST"];
-    $mail->SMTPAuth   = true;
-    $mail->Username   = $_ENV["SMTP_USERNAME"];
-    $mail->Password   = $_ENV["SMTP_PASSWORD"];
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-    $mail->Port       = $_ENV["SMTP_PORT"];
+    global $mail;
 
     $mail->setFrom($from, $name);
     $mail->addAddress($_ENV["SEND_ADDRESS"], 'Idance Studio Team');
@@ -37,6 +39,7 @@ function set_SMTP($from, $name, $subject, $template)
 
     try {
         $mail->send();
+        echo 'success';
     } catch (Exception $ex) {
         echo "Message could not be sent.";
     }
@@ -68,7 +71,6 @@ if (isset($_POST["execution"]) && $_POST["execution"] == "contact") {
                         require_once "contact.php";
                         $template = ob_get_clean();
                         set_SMTP($email, $name, "Contacting Idance Studio", $template);
-                        echo 'success';
                     } else {
                         echo ("please add your message");
                     }
@@ -118,7 +120,6 @@ if (isset($_POST["execution"]) && $_POST["execution"] == "register") {
                         require_once "register.php";
                         $template = ob_get_clean();
                         set_SMTP($email, "$first_name $last_name", "Class Registration", $template);
-                        echo 'success';
                     } else {
                         echo ("please add a email to continue");
                     }
