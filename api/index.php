@@ -6,13 +6,9 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 if (file_exists(__DIR__ . '/../.env')) {
-    echo "Exists";
-} else {
-    echo "Not Exists";
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+    $dotenv->load();
 }
-
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
-$dotenv->load();
 
 $mail = new PHPMailer(true);
 
