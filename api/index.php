@@ -11,5 +11,9 @@ $dotenv->load();
 
 $mail = new PHPMailer(true);
 
+if (file_exists(__DIR__ . '/../.env')) {
+    echo "Exists";
+}
+
 echo "Hello Vercel";
 echo $_ENV['SAMPLE_API_KEY'];
