@@ -37,12 +37,14 @@ function set_SMTP($from, $name, $subject, $template)
     $mail->Subject = $subject;
     $mail->Body    = $template;
 
-    try {
-        $mail->send();
-        echo 'success';
-    } catch (Exception $ex) {
-        echo "Message could not be sent.";
-    }
+    // try {
+    //     $mail->send();
+    //     echo 'success';
+    // } catch (Exception $ex) {
+    //     echo "Message could not be sent.";
+    // }
+    $mail->send();
+    echo 'success';
 }
 
 if (isset($_POST["execution"]) && $_POST["execution"] == "contact") {
