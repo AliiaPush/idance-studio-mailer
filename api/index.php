@@ -37,7 +37,7 @@ function set_SMTP($from, $name, $subject, $template)
 {
     global $mail;
     global $smtp_send_address;
-    print_r($mail);
+
     $mail->setFrom($from, $name);
     $mail->addAddress($smtp_send_address, 'Idance Studio Team');
     $mail->isHTML(true);
@@ -51,8 +51,6 @@ function set_SMTP($from, $name, $subject, $template)
         echo "Message could not be sent.";
     }
 }
-
-set_SMTP($smtp_send_address, "name", "subject", "template");
 
 if (isset($_POST["execution"]) && $_POST["execution"] == "contact") {
     if (isset($_POST["name"]) && !empty($_POST["name"])) {
@@ -79,14 +77,14 @@ if (isset($_POST["execution"]) && $_POST["execution"] == "contact") {
                         ob_start();
                         require_once "contact.php";
                         $template = ob_get_clean();
-                        // set_SMTP($email, $name, "Contacting Idance Studio", $template);
-                        $mail->setFrom($email, $name);
-                        $mail->addAddress($_ENV["SEND_ADDRESS"], 'Idance Studio Team');
-                        $mail->isHTML(true);
-                        $mail->Subject = $subject;
-                        $mail->Body    = $template;
-                        $mail->send();
-                        echo 'success';
+                        set_SMTP($email, $name, "Contacting Idance Studio", $template);
+                        // $mail->setFrom($email, $name);
+                        // $mail->addAddress($_ENV["SEND_ADDRESS"], 'Idance Studio Team');
+                        // $mail->isHTML(true);
+                        // $mail->Subject = $subject;
+                        // $mail->Body    = $template;
+                        // $mail->send();
+                        // echo 'success';
                     } else {
                         echo ("please add your message");
                     }
@@ -135,14 +133,14 @@ if (isset($_POST["execution"]) && $_POST["execution"] == "register") {
                         ob_start();
                         require_once "register.php";
                         $template = ob_get_clean();
-                        // set_SMTP($email, "$first_name $last_name", "Class Registration", $template);
-                        $mail->setFrom($email, "$first_name $last_name");
-                        $mail->addAddress($_ENV["SEND_ADDRESS"], 'Idance Studio Team');
-                        $mail->isHTML(true);
-                        $mail->Subject = "Class Registration";
-                        $mail->Body    = $template;
-                        $mail->send();
-                        echo 'success';
+                        set_SMTP($email, "$first_name $last_name", "Class Registration", $template);
+                        // $mail->setFrom($email, "$first_name $last_name");
+                        // $mail->addAddress($_ENV["SEND_ADDRESS"], 'Idance Studio Team');
+                        // $mail->isHTML(true);
+                        // $mail->Subject = "Class Registration";
+                        // $mail->Body    = $template;
+                        // $mail->send();
+                        // echo 'success';
                     } else {
                         echo ("please add a email to continue");
                     }
