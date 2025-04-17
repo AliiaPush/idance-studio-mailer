@@ -31,11 +31,12 @@ function set_SMTP($from, $name, $subject, $template)
 {
     global $mail;
 
-    $mail->setFrom($from, $name);
-    $mail->addAddress($_ENV["SEND_ADDRESS"], 'Idance Studio Team');
-    $mail->isHTML(true);
-    $mail->Subject = $subject;
-    $mail->Body    = $template;
+    print_r($mail);
+    // $mail->setFrom($from, $name);
+    // $mail->addAddress($_ENV["SEND_ADDRESS"], 'Idance Studio Team');
+    // $mail->isHTML(true);
+    // $mail->Subject = $subject;
+    // $mail->Body    = $template;
 
     // try {
     //     $mail->send();
@@ -43,9 +44,9 @@ function set_SMTP($from, $name, $subject, $template)
     // } catch (Exception $ex) {
     //     echo "Message could not be sent.";
     // }
-    $mail->send();
-    echo 'success';
 }
+
+set_SMTP("from", "name", "subject", "template");
 
 if (isset($_POST["execution"]) && $_POST["execution"] == "contact") {
     if (isset($_POST["name"]) && !empty($_POST["name"])) {
