@@ -38,8 +38,8 @@ function set_SMTP($from, $name, $subject, $template)
     global $mail;
     global $smtp_send_address;
 
-    $mail->setFrom($from, $name);
-    $mail->addAddress($smtp_send_address, 'Idance Studio Team');
+    $mail->setFrom($smtp_send_address, $name);
+    $mail->addAddress($from, 'Idance Studio Team');
     $mail->isHTML(true);
     $mail->Subject = $subject;
     $mail->Body    = $template;
