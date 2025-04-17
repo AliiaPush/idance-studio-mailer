@@ -11,3 +11,5 @@ if (file_exists(__DIR__ . '/../.env')) {
 }
 
 $mail = new PHPMailer(true);
+
+require __DIR__ . '/contact.php';
