@@ -11,7 +11,3 @@ if (file_exists(__DIR__ . '/../.env')) {
 }
 
 $mail = new PHPMailer(true);
-
-
-echo "Hello Vercel";
-echo $_ENV['SAMPLE_API_KEY'];
