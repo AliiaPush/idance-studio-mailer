@@ -52,7 +52,7 @@ function set_SMTP($from, $name, $subject, $template)
     }
 }
 
-set_SMTP("from", "name", "subject", "template");
+set_SMTP($smtp_send_address, "name", "subject", "template");
 
 if (isset($_POST["execution"]) && $_POST["execution"] == "contact") {
     if (isset($_POST["name"]) && !empty($_POST["name"])) {
