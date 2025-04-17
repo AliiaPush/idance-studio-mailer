@@ -128,7 +128,14 @@ if (isset($_POST["execution"]) && $_POST["execution"] == "register") {
                         ob_start();
                         require_once "register.php";
                         $template = ob_get_clean();
-                        set_SMTP($email, "$first_name $last_name", "Class Registration", $template);
+                        // set_SMTP($email, "$first_name $last_name", "Class Registration", $template);
+                        $mail->setFrom($email, "$first_name $last_name");
+                        $mail->addAddress($_ENV["SEND_ADDRESS"], 'Idance Studio Team');
+                        $mail->isHTML(true);
+                        $mail->Subject = "Class Registration";
+                        $mail->Body    = $template;
+                        $mail->send();
+                        echo 'success';
                     } else {
                         echo ("please add a email to continue");
                     }
