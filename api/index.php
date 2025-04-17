@@ -30,20 +30,20 @@ $mail->Port       = $_ENV["SMTP_PORT"];
 function set_SMTP($from, $name, $subject, $template)
 {
     global $mail;
-    echo "set SMTP";
-    print_r($mail);
-    // $mail->setFrom($from, $name);
-    // $mail->addAddress($_ENV["SEND_ADDRESS"], 'Idance Studio Team');
-    // $mail->isHTML(true);
-    // $mail->Subject = $subject;
-    // $mail->Body    = $template;
 
-    // try {
-    //     $mail->send();
-    //     echo 'success';
-    // } catch (Exception $ex) {
-    //     echo "Message could not be sent.";
-    // }
+    print_r($mail);
+    $mail->setFrom($from, $name);
+    $mail->addAddress($_ENV["SEND_ADDRESS"], 'Idance Studio Team');
+    $mail->isHTML(true);
+    $mail->Subject = $subject;
+    $mail->Body    = $template;
+
+    try {
+        $mail->send();
+        echo 'success';
+    } catch (Exception $ex) {
+        echo "Message could not be sent.";
+    }
 }
 
 set_SMTP("from", "name", "subject", "template");
