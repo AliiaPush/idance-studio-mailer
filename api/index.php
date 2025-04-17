@@ -10,7 +10,6 @@ if (file_exists(__DIR__ . '/../.env')) {
     $dotenv->load();
 }
 
-$mail = new PHPMailer(true);
 
 header("Access-Control-Allow-Origin: *");
 
