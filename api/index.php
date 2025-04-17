@@ -49,6 +49,7 @@ function set_SMTP($from, $name, $subject, $template)
         echo 'success';
     } catch (Exception $ex) {
         echo "Message could not be sent.";
+        echo $ex->getMessage();
     }
 }
 
