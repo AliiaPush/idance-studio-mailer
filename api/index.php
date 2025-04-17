@@ -72,7 +72,14 @@ if (isset($_POST["execution"]) && $_POST["execution"] == "contact") {
                         ob_start();
                         require_once "contact.php";
                         $template = ob_get_clean();
-                        set_SMTP($email, $name, "Contacting Idance Studio", $template);
+                        // set_SMTP($email, $name, "Contacting Idance Studio", $template);
+                        $mail->setFrom($email, $name);
+                        $mail->addAddress($_ENV["SEND_ADDRESS"], 'Idance Studio Team');
+                        $mail->isHTML(true);
+                        $mail->Subject = $subject;
+                        $mail->Body    = $template;
+                        $mail->send();
+                        echo 'success';
                     } else {
                         echo ("please add your message");
                     }
