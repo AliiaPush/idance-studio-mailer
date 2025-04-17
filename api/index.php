@@ -17,23 +17,29 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: text/plain");
 
+$smtp_host = $_ENV["SMTP_HOST"];
+$smtp_username = $_ENV["SMTP_USERNAME"];
+$smtp_password = $_ENV["SMTP_PASSWORD"];
+$smtp_port = $_ENV["SMTP_PORT"];
+$smtp_send_address = $_ENV["SEND_ADDRESS"];
+
 $mail = new PHPMailer(true);
 //Server settings
 $mail->isSMTP();
-$mail->Host       = $_ENV["SMTP_HOST"];
+$mail->Host       = $smtp_host;
 $mail->SMTPAuth   = true;
-$mail->Username   = $_ENV["SMTP_USERNAME"];
-$mail->Password   = $_ENV["SMTP_PASSWORD"];
+$mail->Username   = $smtp_username;
+$mail->Password   = $smtp_password;
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-$mail->Port       = $_ENV["SMTP_PORT"];
+$mail->Port       = $smtp_port;
 
 function set_SMTP($from, $name, $subject, $template)
 {
     global $mail;
-
+    global $smtp_send_address;
     print_r($mail);
     $mail->setFrom($from, $name);
-    $mail->addAddress($_ENV["SEND_ADDRESS"], 'Idance Studio Team');
+    $mail->addAddress($smtp_send_address, 'Idance Studio Team');
     $mail->isHTML(true);
     $mail->Subject = $subject;
     $mail->Body    = $template;
