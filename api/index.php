@@ -301,7 +301,6 @@ function validate_inputs($input)
     return $response;
 }
 
-validate_inputs($register);
 
 if (isset($_POST["execution"]) && $_POST["execution"] == "contact") {
     $response = validate_inputs($contact);
@@ -323,7 +322,7 @@ if (isset($_POST["execution"]) && $_POST["execution"] == "register") {
         ob_start();
         require_once "register.php";
         $template = ob_get_clean();
-        set_SMTP($name, "Class Registration", $template);
+        set_SMTP("$first_name $last_name", "Class Registration", $template);
     } else {
         echo $response["message"];
     }
