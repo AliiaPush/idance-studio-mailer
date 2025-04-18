@@ -16,7 +16,7 @@
             <!-- logo -->
             <tr>
                 <div style="width: 100%;height: auto;background-color: #6a5a72;">
-                    <img src="https://drive.google.com/uc?id=1Et3spKiHzZP934iB5fjcuIiK_uWqzEU0" style="width: 250px; margin-left: auto;margin-right: auto;display: block;">
+                    <img src="./assets/logo.png" style="width: 250px; margin-left: auto;margin-right: auto;display: block;">
                 </div>
             </tr>
             <!-- logo -->
@@ -30,79 +30,29 @@
             <!--  -->
             <tr>
                 <div style="width: 90%;margin-left: auto;margin-right: auto;">
-                    <p style="font-family: 'Kaisei HarunoUmi', serif;font-size: 16px;font-weight: 400;margin-top: 3.5rem;color: #6a5a72;text-align: left;">
-                        Name :
-                    </p>
-                </div>
-            </tr>
-            <tr>
-                <div style="width: 90%;margin-left: auto;margin-right: auto;">
-                    <p style="font-family: 'Kaisei HarunoUmi', serif;font-size: 20px;font-weight: 500;margin-top: 1rem;color: #504356;text-align: left;text-transform: capitalize;">
-                        <?php echo $name; ?>
-                    </p>
-                </div>
-            </tr>
-            <!--  -->
-            <!--  -->
-            <tr>
-                <div style="width: 90%;margin-left: auto;margin-right: auto;">
-                    <p style="font-family: 'Kaisei HarunoUmi', serif;font-size: 16px;font-weight: 400;margin-top: 3.5rem;color: #6a5a72;text-align: left;">
-                        Topic :
-                    </p>
-                </div>
-            </tr>
-            <tr>
-                <div style="width: 90%;margin-left: auto;margin-right: auto;">
-                    <p style="font-family: 'Kaisei HarunoUmi', serif;font-size: 20px;font-weight: 500;margin-top: 1rem;color: #504356;text-align: left;">
-                        <?php echo $topic; ?>
-                    </p>
-                </div>
-            </tr>
-            <!--  -->
-            <!--  -->
-            <tr>
-                <div style="width: 90%;margin-left: auto;margin-right: auto;">
-                    <p style="font-family: 'Kaisei HarunoUmi', serif;font-size: 16px;font-weight: 400;margin-top: 3.5rem;color: #6a5a72;text-align: left;">
-                        Email :
-                    </p>
-                </div>
-            </tr>
-            <tr>
-                <div style="width: 90%;margin-left: auto;margin-right: auto;">
-                    <p style="font-family: 'Kaisei HarunoUmi', serif;font-size: 20px;font-weight: 500;margin-top: 1rem;color: #504356;text-align: left;">
-                        <?php echo $email; ?>
-                    </p>
-                </div>
-            </tr>
-            <!--  -->
-            <!--  -->
-            <tr>
-                <div style="width: 90%;margin-left: auto;margin-right: auto;">
-                    <p style="font-family: 'Kaisei HarunoUmi', serif;font-size: 16px;font-weight: 400;margin-top: 3.5rem;color: #6a5a72;text-align: left;">
-                        Subject :
-                    </p>
-                </div>
-            </tr>
-            <tr>
-                <div style="width: 90%;margin-left: auto;margin-right: auto;">
-                    <p style="font-family: 'Kaisei HarunoUmi', serif;font-size: 20px;font-weight: 500;margin-top: 1rem;color: #504356;text-align: left;">
-                        <?php echo $subject; ?>
-                    </p>
-                </div>
-            </tr>
-            <!--  -->
-            <!--  -->
-            <tr>
-                <div style="width: 90%;margin-left: auto;margin-right: auto;">
-                    <p style="font-family: 'Kaisei HarunoUmi', serif;font-size: 16px;font-weight: 400;margin-top: 3.5rem;color: #6a5a72;text-align: left;">
-                        Message :
-                    </p>
-                </div>
-            </tr>
-            <tr>
-                <div style="width: 90%;margin-left: auto;margin-right: auto;">
-                    <p style="font-family: 'Kaisei HarunoUmi', serif;font-size: 20px;font-weight: 500;margin-top: 1rem;color: #504356;text-align: left;">
-                        <?php echo $message; ?>
+                    <p style="font-family: 'Kaisei HarunoUmi', serif;font-size: 16px;font-weight: 400;margin-top: 3.5rem;color: #6a5a72;text-align: left;line-height: 2.5;">
+                        Dear Idance Team, <br><br>
+
+                        I’m
+                        <span style="font-weight: bold;font-style: italic;font-size: 18px;padding: 0 5px;"><?php echo $name; ?></span>
+                        , and dance has always moved something in me — today, it moved me to reach out.
+                        I'm writing about
+                        <span style="font-weight: bold;font-style: italic;font-size: 18px;padding: 0 5px;"><?php echo $topic; ?></span>
+                        , and I’d love to connect with your team. <br>
+
+                        Here’s what’s on my mind: <br>
+                        <span style="font-weight: bold;font-style: italic;font-size: 18px;padding: 0 5px;"><?php echo $subject; ?></span>
+
+                        And a few words from the heart: <br>
+
+                        “<span style="font-weight: bold;font-style: italic;font-size: 18px;padding: 0 5px;"><?php echo $message; ?></span>”<br>
+
+                        You can find me at
+                        <span style="font-weight: bold;font-style: italic;font-size: 18px;padding: 0 5px;"><?php echo $email; ?></span>
+                        , ready to take the next step — whether it's a question, a collaboration, or a chance to dance. <br>
+
+                        With anticipation, <br>
+                        <span style="font-weight: bold;font-style: italic;font-size: 18px;padding: 0 5px;"><?php echo $name; ?></span>
                     </p>
                 </div>
             </tr>
@@ -111,7 +61,7 @@
             <tr>
                 <div style="width: 90%;margin-left: auto;margin-right: auto;margin-top: 5rem;">
                     <p style="font-family: 'Kaisei HarunoUmi', serif;font-size: 12px;font-weight: 400;margin-top: 3.5rem;color: #6a5a72;text-align: center;margin-bottom: 0;">
-                        Copyright &copy; 2023 Luke Fernando. All rights reserved
+                        Copyright &copy; 2025 Idance Studio. All rights reserved
                     </p>
                 </div>
             </tr>
