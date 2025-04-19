@@ -16,7 +16,7 @@
             <!-- logo -->
             <tr>
                 <div style="width: 100%;height: auto;background-color: #6a5a72;">
-                    <img src="./assets/logo.png" style="width: 250px; margin-left: auto;margin-right: auto;display: block;">
+                    <img src="/logo.png" style="width: 250px; margin-left: auto;margin-right: auto;display: block;">
                 </div>
             </tr>
             <!-- logo -->
@@ -52,7 +52,8 @@
                         , ready to take the next step — whether it's a question, a collaboration, or a chance to dance. <br>
 
                         With anticipation, <br>
-                        <span style="font-weight: bold;font-style: italic;font-size: 18px;padding: 0 5px;"><?php echo $name; ?></span>
+                        <span style="font-weight: bold;font-style: italic;font-size: 18px;padding: 0 5px;"><?php echo $name; ?></span><br>
+                        <span><?php echo $datetime; ?></span>
                     </p>
                 </div>
             </tr>

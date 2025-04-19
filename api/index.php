@@ -298,6 +298,7 @@ function validate_inputs($input)
             }
         }
     }
+    $response["data"]["datetime"] = date("d M Y \a\\t H.i");
     return $response;
 }
 
