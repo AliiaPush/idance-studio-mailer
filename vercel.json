@@ -3,5 +3,20 @@
         "api/index.php": {
             "runtime": "vercel-php@0.7.3"
         }
-    }
+    },
+    "headers": [
+        {
+            "source": "/logo.png",
+            "headers": [
+                {
+                    "key": "Access-Control-Allow-Origin",
+                    "value": "*"
+                },
+                {
+                    "key": "Cashe-Control",
+                    "value": "public, max-age=63072000"
+                }
+            ]
+        }
+    ]
 }

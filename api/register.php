@@ -16,7 +16,7 @@
             <!-- logo -->
             <tr>
                 <div style="width: 100%;height: auto;background-color: #6a5a72;">
-                    <img src="/logo.png" style="width: 250px; margin-left: auto;margin-right: auto;display: block;">
+                    <img src="https://idance-studio-mailer.vercel.app/logo.png" style="width: 250px; margin-left: auto;margin-right: auto;display: block;">
                 </div>
             </tr>
             <!-- logo -->
