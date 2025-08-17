@@ -12,7 +12,6 @@ if (file_exists(__DIR__ . '/../.env')) {
 
 \Sentry\init([
     'dsn' => $_ENV["SENTRY_DSN"],
-    'traces_sample_rate' => 1.0,
 ]);
 
 header("Access-Control-Allow-Origin: *");
